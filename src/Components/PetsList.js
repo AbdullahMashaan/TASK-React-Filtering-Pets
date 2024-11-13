@@ -10,10 +10,6 @@ const filteredByName = pets.filter ((pet) =>  pet.name.includes(query));
 const filteredByType = filteredByName.filter ((pet) =>  pet.type.includes(type));
 const petList = filteredByType.map((pet) => <PetItem pet={pet} key={pet.id} />);
 
-
-
-
-
   return (
     <section id="doctors" className="doctor-section pt-140">
       <div className="container">
