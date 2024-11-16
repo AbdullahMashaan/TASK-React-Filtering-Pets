@@ -5,10 +5,19 @@ import PetItem from "./PetItem";
 function PetsList() {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("");
+  const [available, setAvailabel] = useState(pets);
 
-const filteredByName = pets.filter ((pet) =>  pet.name.includes(query));
+const handleAdopt = (petId) => {
+  const petList = available.filter((pet) => pet.id !== petId);
+  setAvailabel(petList);
+
+
+}
+
+
+const filteredByName = available.filter ((pet) =>  pet.name.includes(query));
 const filteredByType = filteredByName.filter ((pet) =>  pet.type.includes(type));
-const petList = filteredByType.map((pet) => <PetItem pet={pet} key={pet.id} />);
+const petList = filteredByType.map((pet) => <PetItem adoptFunction={handleAdopt} pet={pet} key={pet.id} />);
 
   return (
     <section id="doctors" className="doctor-section pt-140">
